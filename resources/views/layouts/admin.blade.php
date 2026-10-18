@@ -19,11 +19,19 @@
     @stack('head')
 </head>
 <body class="admin-body">
+    <!-- Backdrop for mobile off-canvas sidebar -->
+    <div class="admin-sidebar-backdrop" id="adminSidebarBackdrop"></div>
+
     <!-- Sidebar Navigation with Granular RBAC (PDF items 51-57, 101, 102) -->
-    <aside class="admin-sidebar">
-        <div class="admin-sidebar-brand">
-            <span class="admin-brand-title">OREON LIVING</span>
-            <span class="admin-brand-badge">STAFF PORTAL</span>
+    <aside class="admin-sidebar" id="adminSidebar">
+        <div class="admin-sidebar-brand" style="display: flex; justify-content: space-between; align-items: center;">
+            <div>
+                <span class="admin-brand-title">OREON LIVING</span>
+                <span class="admin-brand-badge">STAFF PORTAL</span>
+            </div>
+            <button type="button" class="admin-sidebar-close" id="adminSidebarClose" aria-label="Close navigation menu">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
         </div>
 
         <nav class="admin-sidebar-nav">
@@ -135,10 +143,15 @@
     <!-- Admin Main Body -->
     <div class="admin-main">
         <header class="admin-header">
-            <h2 style="font-size: 1.15rem; font-weight: 600;">@yield('header_title', 'Staff Dashboard')</h2>
+            <div class="flex items-center">
+                <button type="button" class="admin-sidebar-toggle" id="adminSidebarToggle" aria-label="Toggle navigation menu">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </button>
+                <h2 style="font-size: 1.15rem; font-weight: 600;">@yield('header_title', 'Staff Dashboard')</h2>
+            </div>
             <div class="flex items-center gap-2">
-                <span class="status-pill status-confirmed">{{ str_replace('_', ' ', auth()->user()->role) }}</span>
-                <a href="{{ route('home') }}" target="_blank" class="btn btn-secondary btn-sm">Public Storefront &nearr;</a>
+                <span class="status-pill status-confirmed hide-mobile">{{ str_replace('_', ' ', auth()->user()->role) }}</span>
+                <a href="{{ route('home') }}" target="_blank" class="btn btn-secondary btn-sm">Storefront &nearr;</a>
             </div>
         </header>
 
@@ -158,6 +171,46 @@
             @yield('content')
         </div>
     </div>
+
+    <!-- Admin Mobile Sidebar Controller Script -->
+    <script>
+        const adminSidebarToggle = document.getElementById('adminSidebarToggle');
+        const adminSidebar = document.getElementById('adminSidebar');
+        const adminSidebarBackdrop = document.getElementById('adminSidebarBackdrop');
+        const adminSidebarClose = document.getElementById('adminSidebarClose');
+
+        function openAdminSidebar() {
+            if (adminSidebar && adminSidebarBackdrop) {
+                adminSidebar.classList.add('active');
+                adminSidebarBackdrop.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeAdminSidebar() {
+            if (adminSidebar && adminSidebarBackdrop) {
+                adminSidebar.classList.remove('active');
+                adminSidebarBackdrop.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+
+        if (adminSidebarToggle) {
+            adminSidebarToggle.addEventListener('click', openAdminSidebar);
+        }
+        if (adminSidebarClose) {
+            adminSidebarClose.addEventListener('click', closeAdminSidebar);
+        }
+        if (adminSidebarBackdrop) {
+            adminSidebarBackdrop.addEventListener('click', closeAdminSidebar);
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && adminSidebar && adminSidebar.classList.contains('active')) {
+                closeAdminSidebar();
+            }
+        });
+    </script>
 
     @stack('scripts')
 </body>

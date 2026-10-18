@@ -1,0 +1,305 @@
+/* ==========================================================================
+   OREON LIVING — ADMIN SYSTEM STYLESHEET
+   Clean, modern, role-aware administrative dashboard
+   ========================================================================== */
+
+:root {
+    --admin-sidebar-width: 260px;
+    --admin-header-height: 64px;
+
+    --admin-bg: #F8F9FA;
+    --admin-surface: #FFFFFF;
+    --admin-border: #E5E7EB;
+    --admin-text: #1F2937;
+    --admin-text-muted: #6B7280;
+    
+    --admin-primary: #B85D3B;
+    --admin-primary-dark: #9E472A;
+    --admin-sidebar-bg: #1C1917;
+    --admin-sidebar-text: #E7E5E4;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body.admin-body {
+    background-color: var(--admin-bg);
+    color: var(--admin-text);
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar */
+.admin-sidebar {
+    width: var(--admin-sidebar-width);
+    background-color: var(--admin-sidebar-bg);
+    color: var(--admin-sidebar-text);
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 50;
+    overflow-y: auto;
+}
+
+.admin-sidebar-brand {
+    padding: 1.5rem 1.25rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.admin-brand-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #FAF7F2;
+}
+
+.admin-brand-badge {
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #B85D3B;
+    font-weight: 600;
+}
+
+.admin-sidebar-nav {
+    padding: 1.25rem 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    flex: 1;
+}
+
+.admin-nav-category {
+    font-size: 0.6875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #78716C;
+    padding: 0.75rem 0.5rem 0.25rem;
+    font-weight: 600;
+}
+
+.admin-nav-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.65rem 0.85rem;
+    border-radius: 6px;
+    color: #D6D3D1;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: all 150ms ease;
+}
+
+.admin-nav-item:hover, .admin-nav-item.active {
+    background-color: rgba(255, 255, 255, 0.08);
+    color: #FFFFFF;
+}
+
+.admin-nav-item.active {
+    background-color: var(--admin-primary);
+    color: #FFFFFF;
+}
+
+.admin-sidebar-footer {
+    padding: 1rem 1.25rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.admin-user-info {
+    font-size: 0.8125rem;
+}
+
+.admin-user-role {
+    font-size: 0.6875rem;
+    color: #A8A29E;
+    text-transform: capitalize;
+}
+
+/* Main Content Area */
+.admin-main {
+    margin-left: var(--admin-sidebar-width);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.admin-header {
+    height: var(--admin-header-height);
+    background-color: var(--admin-surface);
+    border-bottom: 1px solid var(--admin-border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 40;
+}
+
+.admin-content {
+    padding: 2rem;
+    flex: 1;
+}
+
+/* KPI Cards */
+.kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.kpi-card {
+    background-color: var(--admin-surface);
+    border: 1px solid var(--admin-border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.kpi-label {
+    font-size: 0.8125rem;
+    color: var(--admin-text-muted);
+    font-weight: 500;
+}
+
+.kpi-value {
+    font-size: 1.85rem;
+    font-weight: 700;
+    color: var(--admin-text);
+    line-height: 1;
+}
+
+.kpi-subtext {
+    font-size: 0.75rem;
+    color: var(--admin-text-muted);
+}
+
+/* Tables */
+.admin-card {
+    background-color: var(--admin-surface);
+    border: 1px solid var(--admin-border);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+
+.admin-card-header {
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid var(--admin-border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.admin-card-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--admin-text);
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 0.875rem;
+}
+
+.admin-table th {
+    background-color: #F9FAFB;
+    padding: 0.85rem 1.25rem;
+    font-weight: 600;
+    color: var(--admin-text-muted);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid var(--admin-border);
+}
+
+.admin-table td {
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--admin-border);
+    vertical-align: middle;
+}
+
+.admin-table tr:hover {
+    background-color: #FBF9F5;
+}
+
+/* Status Badges */
+.status-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.65rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.status-pending { background-color: #FEF3C7; color: #92400E; }
+.status-confirmed { background-color: #DBEAFE; color: #1E40AF; }
+.status-processing { background-color: #E0E7FF; color: #3730A3; }
+.status-shipped { background-color: #EDE9FE; color: #5B21B6; }
+.status-delivered { background-color: #D1FAE5; color: #065F46; }
+.status-cancelled { background-color: #FEE2E2; color: #991B1B; }
+.status-return_requested { background-color: #FFEDD5; color: #9A3412; }
+.status-refunded { background-color: #F3F4F6; color: #374151; }
+
+/* Quick edit inputs */
+.quick-input {
+    width: 90px;
+    padding: 0.35rem 0.5rem;
+    border: 1px solid var(--admin-border);
+    border-radius: 4px;
+    font-size: 0.8125rem;
+}
+
+.quick-input:focus {
+    border-color: var(--admin-primary);
+    outline: none;
+}
+
+/* Actions */
+.action-btn-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-icon {
+    width: 32px;
+    height: 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    border: 1px solid var(--admin-border);
+    background: #FFFFFF;
+    color: var(--admin-text);
+    transition: all 150ms ease;
+}
+
+.btn-icon:hover {
+    background-color: #F3F4F6;
+    color: var(--admin-primary);
+}
+
+.btn-icon-danger:hover {
+    background-color: #FEE2E2;
+    color: #DC2626;
+    border-color: #FCA5A5;
+}

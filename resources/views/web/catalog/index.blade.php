@@ -39,9 +39,15 @@
     </div>
 
     <!-- Layout: Sidebar Filters + Products Grid -->
-    <div style="display: grid; grid-template-columns: 240px 1fr; gap: 2.5rem; align-items: start;" class="shop-layout">
+    <div class="shop-layout">
+        <!-- Mobile Filter Toggle Button -->
+        <button type="button" class="btn btn-secondary btn-block hide-desktop" onclick="const sb = document.getElementById('shopSidebar'); sb.style.display = sb.style.display === 'block' ? 'none' : 'block';" style="margin-bottom: 0.5rem; display: flex; justify-content: space-between; align-items: center;">
+            <span>Filter Pieces by Category & Price</span>
+            <span>&darr;</span>
+        </button>
+
         <!-- Sidebar Filters -->
-        <aside style="background-color: var(--color-surface); border: 1px solid var(--color-border); padding: 1.5rem; border-radius: var(--radius-sm);">
+        <aside id="shopSidebar" class="shop-sidebar" style="background-color: var(--color-surface); border: 1px solid var(--color-border); padding: 1.5rem; border-radius: var(--radius-sm);">
             <div class="flex justify-between items-center" style="margin-bottom: 1.25rem;">
                 <h4 style="font-family: var(--font-body); font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600;">Filters</h4>
                 <a href="{{ route('shop.index') }}" style="font-size: 0.75rem; color: var(--color-clay); text-decoration: underline;">Reset All</a>
@@ -102,7 +108,7 @@
                     <a href="{{ route('shop.index') }}" class="btn btn-secondary">Clear All Filters</a>
                 </div>
             @else
-                <div class="product-grid" style="grid-template-columns: repeat(3, 1fr);">
+                <div class="product-grid">
                     @foreach($products as $product)
                         <x-product-card :product="$product" />
                     @endforeach
@@ -116,12 +122,4 @@
         </div>
     </div>
 </div>
-
-<style>
-@media (max-width: 900px) {
-    .shop-layout {
-        grid-template-columns: 1fr !important;
-    }
-}
-</style>
 @endsection

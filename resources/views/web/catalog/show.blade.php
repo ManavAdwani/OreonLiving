@@ -19,7 +19,7 @@
     </nav>
 
     <!-- Product Main Grid: Gallery + Details -->
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; margin-bottom: 5rem;" class="pdp-layout">
+    <div class="pdp-layout">
         <!-- 1. Image Gallery -->
         <div class="pdp-gallery">
             <div style="aspect-ratio: 4/5; background-color: var(--color-surface-subtle); border-radius: var(--radius-sm); overflow: hidden; margin-bottom: 1rem; border: 1px solid var(--color-border);">

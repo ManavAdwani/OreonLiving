@@ -18,11 +18,11 @@
     <form action="{{ route('checkout.store') }}" method="POST" id="checkoutForm">
         @csrf
 
-        <div style="display: grid; grid-template-columns: 1.8fr 1.2fr; gap: 3.5rem; align-items: start;" class="checkout-layout">
+        <div class="checkout-layout">
             <!-- Left Column: Shipping & Payment Details -->
             <div>
                 <!-- 1. Contact Information -->
-                <div style="background-color: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: 2rem; margin-bottom: 2rem;">
+                <div class="checkout-step-box" style="background-color: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: 2rem; margin-bottom: 2rem;">
                     <div class="flex justify-between items-center" style="margin-bottom: 1.5rem;">
                         <h3 style="font-size: 1.25rem;">1. Contact Details</h3>
                         @guest
@@ -32,7 +32,7 @@
                         @endguest
                     </div>
 
-                    <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <div class="checkout-grid-2">
                         <div class="form-group" style="grid-column: 1 / -1;">
                             <label class="form-label">Full Name *</label>
                             <input type="text" name="name" required value="{{ old('name', $user?->name) }}" class="form-control" placeholder="e.g. Ananya Deshmukh">
@@ -51,7 +51,7 @@
                 </div>
 
                 <!-- 2. Delivery Address -->
-                <div style="background-color: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: 2rem; margin-bottom: 2rem;">
+                <div class="checkout-step-box" style="background-color: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: 2rem; margin-bottom: 2rem;">
                     <h3 style="font-size: 1.25rem; margin-bottom: 1.5rem;">2. Shipping Address</h3>
 
                     <!-- Saved Addresses for Logged In User -->
@@ -71,7 +71,7 @@
                         </div>
                     @endif
 
-                    <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <div class="checkout-grid-2">
                         <div class="form-group" style="grid-column: 1 / -1;">
                             <label class="form-label">Address Line 1 (Flat, House no., Building, Street) *</label>
                             <input type="text" name="address_line_1" id="address_line_1" required value="{{ old('address_line_1', $defaultAddress?->address_line_1) }}" class="form-control" placeholder="e.g. Flat 402, Lotus Grandeur, 14th Cross">

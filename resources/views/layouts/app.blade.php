@@ -117,8 +117,70 @@
                     </a>
                 </div>
             </div>
-        </div>
     </header>
+
+    <!-- Mobile Drawer & Backdrop -->
+    <div class="mobile-drawer-backdrop" id="mobileDrawerBackdrop"></div>
+    <aside class="mobile-drawer" id="mobileDrawer" aria-label="Mobile Navigation Drawer">
+        <div class="mobile-drawer-header">
+            <a href="{{ route('home') }}" class="brand-logo" onclick="closeMobileDrawer()">
+                <span class="logo-title" style="font-size: 1.4rem;">OREON LIVING</span>
+                <span class="logo-subtitle" style="font-size: 0.55rem;">EARTH &middot; CRAFT &middot; FORM</span>
+            </a>
+            <button type="button" class="mobile-drawer-close" id="mobileDrawerClose" aria-label="Close menu">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+        </div>
+
+        <div class="mobile-drawer-search">
+            <form action="{{ route('search') }}" method="GET">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <input type="search" name="q" placeholder="Search clay cookware, planters, carafes..." value="{{ request('q') }}">
+            </form>
+        </div>
+
+        <div class="mobile-drawer-body">
+            <div class="mobile-drawer-section-title">Shop Collections</div>
+            <ul class="mobile-drawer-links">
+                <li><a href="{{ route('shop.index') }}"><span>Shop All Pieces</span> <span style="color: var(--color-clay);">&rarr;</span></a></li>
+                <li><a href="{{ route('shop.category', 'water-pots-and-carafes') }}"><span>Water Pots & Carafes</span> <span>&rsaquo;</span></a></li>
+                <li><a href="{{ route('shop.category', 'botanical-planters') }}"><span>Botanical Planters</span> <span>&rsaquo;</span></a></li>
+                <li><a href="{{ route('shop.category', 'earthen-cookware') }}"><span>Clay Cookware & Handis</span> <span>&rsaquo;</span></a></li>
+                <li><a href="{{ route('shop.category', 'serveware-and-tableware') }}"><span>Serveware & Tableware</span> <span>&rsaquo;</span></a></li>
+                <li><a href="{{ route('shop.category', 'sculptural-vases') }}"><span>Sculptural Vases</span> <span>&rsaquo;</span></a></li>
+                <li><a href="{{ route('shop.category', 'ritual-diyas-and-lamps') }}"><span>Ritual Diyas & Lamps</span> <span>&rsaquo;</span></a></li>
+            </ul>
+
+            <div class="mobile-drawer-section-title">The Studio & Care</div>
+            <ul class="mobile-drawer-links">
+                <li><a href="{{ route('pages.about') }}"><span>Our Craft Philosophy</span> <span>&rsaquo;</span></a></li>
+                <li><a href="{{ route('pages.faq') }}"><span>Clay Seasoning & FAQs</span> <span>&rsaquo;</span></a></li>
+                <li><a href="{{ route('pages.shipping-policy') }}"><span>100% Breakage Guarantee</span> <span>&rsaquo;</span></a></li>
+                <li><a href="{{ route('pages.contact') }}"><span>Contact Studio Concierge</span> <span>&rsaquo;</span></a></li>
+            </ul>
+
+            <div class="mobile-drawer-section-title">Patron Sanctuary</div>
+            <ul class="mobile-drawer-links">
+                @auth
+                    <li><a href="{{ auth()->user()->isStaff() ? route('admin.dashboard') : route('account.dashboard') }}"><span>My Account ({{ auth()->user()->name }})</span> <span>&rsaquo;</span></a></li>
+                    <li><a href="{{ route('account.orders') }}"><span>My Orders</span> <span>&rsaquo;</span></a></li>
+                    <li><a href="{{ route('wishlist.index') }}"><span>Saved Pieces (Wishlist)</span> <span>&rsaquo;</span></a></li>
+                    <li><a href="{{ route('cart.index') }}"><span>Cart ({{ $cartCount }})</span> <span style="font-weight: 600; color: var(--color-clay);">View</span></a></li>
+                @else
+                    <li><a href="{{ route('login') }}"><span>Sign In / Create Account</span> <span>&rsaquo;</span></a></li>
+                    <li><a href="{{ route('wishlist.index') }}"><span>Wishlist</span> <span>&rsaquo;</span></a></li>
+                    <li><a href="{{ route('cart.index') }}"><span>Cart ({{ $cartCount }})</span> <span style="font-weight: 600; color: var(--color-clay);">View</span></a></li>
+                @endauth
+            </ul>
+        </div>
+
+        <div class="mobile-drawer-footer">
+            <a href="https://wa.me/{{ $whatsappNumber }}?text={{ urlencode('Hello Oreon Living, I have a question about your earthen collections.') }}" target="_blank" rel="noopener" class="btn btn-block" style="background: #25D366; color: #fff; font-size: 0.85rem; padding: 0.75rem 1rem;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block; vertical-align:middle; margin-right: 6px;"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                WhatsApp Artisan Concierge
+            </a>
+        </div>
+    </aside>
 
     <!-- Flash Messages -->
     <div class="container" style="margin-top: 1rem;">
@@ -238,27 +300,42 @@
             }
         });
 
-        // Mobile Menu Toggle
-        const menuBtn = document.getElementById('mobileMenuBtn');
-        const navLinks = document.getElementById('navLinks');
-        if (menuBtn && navLinks) {
-            menuBtn.addEventListener('click', () => {
-                if (navLinks.style.display === 'flex') {
-                    navLinks.style.display = 'none';
-                } else {
-                    navLinks.style.display = 'flex';
-                    navLinks.style.flexDirection = 'column';
-                    navLinks.style.position = 'absolute';
-                    navLinks.style.top = '100%';
-                    navLinks.style.left = '0';
-                    navLinks.style.right = '0';
-                    navLinks.style.background = '#FAF7F2';
-                    navLinks.style.padding = '1.5rem';
-                    navLinks.style.borderBottom = '1px solid var(--color-border)';
-                    navLinks.style.boxShadow = 'var(--shadow-card)';
-                }
-            });
+        // Mobile Drawer Controller
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileDrawer = document.getElementById('mobileDrawer');
+        const mobileDrawerBackdrop = document.getElementById('mobileDrawerBackdrop');
+        const mobileDrawerClose = document.getElementById('mobileDrawerClose');
+
+        function openMobileDrawer() {
+            if (mobileDrawer && mobileDrawerBackdrop) {
+                mobileDrawer.classList.add('active');
+                mobileDrawerBackdrop.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
         }
+
+        function closeMobileDrawer() {
+            if (mobileDrawer && mobileDrawerBackdrop) {
+                mobileDrawer.classList.remove('active');
+                mobileDrawerBackdrop.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', openMobileDrawer);
+        }
+        if (mobileDrawerClose) {
+            mobileDrawerClose.addEventListener('click', closeMobileDrawer);
+        }
+        if (mobileDrawerBackdrop) {
+            mobileDrawerBackdrop.addEventListener('click', closeMobileDrawer);
+        }
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && mobileDrawer && mobileDrawer.classList.contains('active')) {
+                closeMobileDrawer();
+            }
+        });
 
         // Global AJAX Wishlist Toggle
         function toggleWishlist(productId, btnElement) {

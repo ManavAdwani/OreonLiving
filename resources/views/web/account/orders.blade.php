@@ -13,10 +13,10 @@
         <span>Orders</span>
     </nav>
 
-    <div style="display: grid; grid-template-columns: 240px 1fr; gap: 3rem; align-items: start;" class="account-layout">
+    <div class="account-layout">
         <!-- Sidebar -->
         <aside style="background-color: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: 1.5rem;">
-            <nav style="display: flex; flex-direction: column; gap: 0.35rem;">
+            <nav class="account-sidebar-nav" style="display: flex; flex-direction: column; gap: 0.35rem;">
                 <a href="{{ route('account.dashboard') }}" style="padding: 0.65rem 0.85rem; border-radius: var(--radius-sm); font-size: 0.875rem; color: var(--color-text);">
                     Dashboard Overview
                 </a>

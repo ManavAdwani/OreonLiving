@@ -46,7 +46,7 @@
         </div>
 
         <!-- 2-Column Cart Layout -->
-        <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 3rem; align-items: start;" class="cart-layout">
+        <div class="cart-layout">
             <!-- Left: Items Table -->
             <div style="background-color: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-sm); overflow: hidden;">
                 <div style="padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--color-border); display: flex; justify-content: space-between; align-items: center;">
@@ -55,52 +55,56 @@
 
                 <div style="padding: 0 1.5rem;">
                     @foreach($cart->items as $item)
-                        <div style="display: flex; gap: 1.5rem; padding: 1.5rem 0; border-bottom: 1px solid var(--color-border-subtle); align-items: center;" class="cart-item-row">
-                            <!-- Thumbnail -->
-                            <a href="{{ route('product.show', $item->product->slug) }}" style="width: 80px; height: 100px; border-radius: var(--radius-sm); overflow: hidden; flex-shrink: 0; background: var(--color-surface-subtle); border: 1px solid var(--color-border);">
-                                <img src="{{ $item->product->primary_image_url }}" alt="{{ $item->product->name }}" style="width: 100%; height: 100%; object-fit: cover;">
-                            </a>
+                        <div class="cart-item-row" style="display: flex; gap: 1.5rem; padding: 1.5rem 0; border-bottom: 1px solid var(--color-border-subtle); align-items: center;">
+                            <div class="cart-item-info-wrap" style="display: flex; gap: 1rem; align-items: center; flex: 1;">
+                                <!-- Thumbnail -->
+                                <a href="{{ route('product.show', $item->product->slug) }}" style="width: 72px; height: 90px; border-radius: var(--radius-sm); overflow: hidden; flex-shrink: 0; background: var(--color-surface-subtle); border: 1px solid var(--color-border);">
+                                    <img src="{{ $item->product->primary_image_url }}" alt="{{ $item->product->name }}" style="width: 100%; height: 100%; object-fit: cover;">
+                                </a>
 
-                            <!-- Info -->
-                            <div style="flex: 1;">
-                                <h4 style="font-size: 1.1rem; font-weight: 500; margin-bottom: 0.25rem;">
-                                    <a href="{{ route('product.show', $item->product->slug) }}">{{ $item->product->name }}</a>
-                                </h4>
-                                @if($item->variant)
-                                    <p style="font-size: 0.8125rem; color: var(--color-text-muted); margin-bottom: 0.35rem;">Option: {{ $item->variant->title }}</p>
-                                @endif
-                                <span style="font-weight: 600; font-size: 0.9375rem; color: var(--color-text);">₹{{ number_format($item->price, 2) }}</span>
+                                <!-- Info -->
+                                <div style="flex: 1;">
+                                    <h4 style="font-size: 1.05rem; font-weight: 500; margin-bottom: 0.25rem; line-height: 1.3;">
+                                        <a href="{{ route('product.show', $item->product->slug) }}">{{ $item->product->name }}</a>
+                                    </h4>
+                                    @if($item->variant)
+                                        <p style="font-size: 0.8125rem; color: var(--color-text-muted); margin-bottom: 0.35rem;">Option: {{ $item->variant->title }}</p>
+                                    @endif
+                                    <span style="font-weight: 600; font-size: 0.9375rem; color: var(--color-clay);">₹{{ number_format($item->price, 2) }}</span>
+                                </div>
                             </div>
 
-                            <!-- Quantity Form -->
-                            <div style="display: inline-flex; align-items: center; border: 1px solid var(--color-border); border-radius: var(--radius-sm); background: var(--color-bg);">
-                                <form action="{{ route('cart.update') }}" method="POST" style="margin: 0;">
+                            <div class="cart-item-actions-wrap" style="display: flex; align-items: center; gap: 1.5rem;">
+                                <!-- Quantity Form -->
+                                <div style="display: inline-flex; align-items: center; border: 1px solid var(--color-border); border-radius: var(--radius-sm); background: var(--color-bg);">
+                                    <form action="{{ route('cart.update') }}" method="POST" style="margin: 0;">
+                                        @csrf
+                                        <input type="hidden" name="cart_item_id" value="{{ $item->id }}">
+                                        <input type="hidden" name="quantity" value="{{ $item->quantity - 1 }}">
+                                        <button type="submit" style="padding: 0.35rem 0.65rem; color: var(--color-text);">&minus;</button>
+                                    </form>
+                                    <span style="width: 32px; text-align: center; font-size: 0.875rem; font-weight: 600;">{{ $item->quantity }}</span>
+                                    <form action="{{ route('cart.update') }}" method="POST" style="margin: 0;">
+                                        @csrf
+                                        <input type="hidden" name="cart_item_id" value="{{ $item->id }}">
+                                        <input type="hidden" name="quantity" value="{{ $item->quantity + 1 }}">
+                                        <button type="submit" style="padding: 0.35rem 0.65rem; color: var(--color-text);">&plus;</button>
+                                    </form>
+                                </div>
+
+                                <!-- Line Total -->
+                                <div style="min-width: 80px; text-align: right;">
+                                    <span style="font-weight: 700; font-size: 1.05rem;">₹{{ number_format($item->total, 2) }}</span>
+                                </div>
+
+                                <!-- Remove Button -->
+                                <form action="{{ route('cart.remove', $item->id) }}" method="POST" style="margin: 0;">
                                     @csrf
-                                    <input type="hidden" name="cart_item_id" value="{{ $item->id }}">
-                                    <input type="hidden" name="quantity" value="{{ $item->quantity - 1 }}">
-                                    <button type="submit" style="padding: 0.35rem 0.65rem; color: var(--color-text);">&minus;</button>
-                                </form>
-                                <span style="width: 32px; text-align: center; font-size: 0.875rem; font-weight: 600;">{{ $item->quantity }}</span>
-                                <form action="{{ route('cart.update') }}" method="POST" style="margin: 0;">
-                                    @csrf
-                                    <input type="hidden" name="cart_item_id" value="{{ $item->id }}">
-                                    <input type="hidden" name="quantity" value="{{ $item->quantity + 1 }}">
-                                    <button type="submit" style="padding: 0.35rem 0.65rem; color: var(--color-text);">&plus;</button>
+                                    <button type="submit" title="Remove piece" style="color: var(--color-text-light); padding: 0.4rem; transition: color var(--transition-fast);" onmouseover="this.style.color='var(--color-danger)'" onmouseout="this.style.color='var(--color-text-light)'">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                                    </button>
                                 </form>
                             </div>
-
-                            <!-- Line Total -->
-                            <div style="min-width: 90px; text-align: right;">
-                                <span style="font-weight: 700; font-size: 1.05rem;">₹{{ number_format($item->total, 2) }}</span>
-                            </div>
-
-                            <!-- Remove Button -->
-                            <form action="{{ route('cart.remove', $item->id) }}" method="POST" style="margin: 0;">
-                                @csrf
-                                <button type="submit" title="Remove piece" style="color: var(--color-text-light); padding: 0.4rem; transition: color var(--transition-fast);" onmouseover="this.style.color='var(--color-danger)'" onmouseout="this.style.color='var(--color-text-light)'">
-                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
-                                </button>
-                            </form>
                         </div>
                     @endforeach
                 </div>

@@ -42,7 +42,7 @@
 <!-- 2. Value Pillars (Minimalist Bar) -->
 <section style="background-color: var(--color-surface); border-bottom: 1px solid var(--color-border); padding: 1.75rem 0;">
     <div class="container">
-        <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); text-align: center; gap: 1.5rem;">
+        <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); text-align: center; gap: 1.25rem;">
             <div>
                 <p style="font-weight: 600; font-size: 0.9375rem; color: var(--color-text); margin-bottom: 0.25rem;">100% Lead-Free River Clay</p>
                 <p style="font-size: 0.8125rem; color: var(--color-text-muted);">Porous, unglazed, and naturally alkaline</p>
@@ -111,7 +111,7 @@
 <!-- 5. Editorial Brand Story: "The Breath of Terracotta" -->
 <section class="section">
     <div class="container">
-        <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); align-items: center; gap: 4rem;">
+        <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); align-items: center; gap: clamp(2rem, 4vw, 4rem);">
             <div style="position: relative;">
                 <div style="aspect-ratio: 4/5; border-radius: var(--radius-sm); overflow: hidden; background-color: var(--color-surface-subtle);">
                     <img src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?auto=format&fit=crop&w=1000&q=85" alt="Potter shaping clay" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">

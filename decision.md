@@ -156,6 +156,15 @@ Provides seamless frictionless purchasing for Indian shoppers who favor UPI and 
   - High-resolution editorial photography of earthen pottery, glazed terracotta, and water carafes.
   - Zero clutter, zero loud promotional banners.
 
+### Decision Change (Mobile-First Overhaul)
+- **Previous**: Desktop-centric layouts with rigid inline grids (`grid-template-columns: 2fr 1fr`, `1.8fr 1.2fr`) that compromised mobile rendering on smartphones.
+- **New**: Pure CSS responsive layout classes (`.shop-layout`, `.pdp-layout`, `.cart-layout`, `.checkout-layout`, `.account-layout`).
+- **Mobile Off-Canvas Drawer**: Replaced basic inline menu toggle with an app-like off-canvas drawer (`.mobile-drawer`) featuring a dimmed backdrop blur, quick search, categorized collection links, direct customer portal shortcuts, and WhatsApp concierge.
+- **Shop Catalog on Mobile**: Added a tap-to-expand filter accordion so filters do not push the product grid off-screen on phones.
+- **2-Column Product Grid**: Mobile product cards dynamically adapt with 2-column layouts, clean typography scaling, and comfortable touch targets (&gt;= 44px).
+- **Cart & Checkout Stacking**: Form fields and cart rows split into stacked mobile cards with thumb-friendly quantity steppers and full-width checkout actions.
+- **Date**: 18 Oct 2026.
+
 ---
 
 ## 8. Performance & Asset Strategy

@@ -44,7 +44,7 @@ class OrderController extends Controller
         $customerPhone = preg_replace('/[^0-9]/', '', $order->customer_phone);
 
         // Pre-filled WhatsApp notification message for customer (Item 110 & 152 in PDF)
-        $waMsg = "Hello {$order->customer_name}, your Oreon Living Order #{$order->order_number} has been updated to: " . strtoupper($order->order_status) . ".";
+        $waMsg = "Hello {$order->customer_name}, your Oréon Living Order #{$order->order_number} has been updated to: " . strtoupper($order->order_status) . ".";
         if ($order->tracking_number) {
             $waMsg .= " Tracking Number: {$order->tracking_number} ({$order->carrier_name}).";
         }

@@ -27,7 +27,7 @@ class AdminRoleMiddleware
         }
 
         if (!$user->isStaff()) {
-            abort(403, 'Unauthorized. Access restricted to authorized Oreon Living staff.');
+            abort(403, 'Unauthorized. Access restricted to authorized Oréon Living staff.');
         }
 
         if ($section && !$user->canAccessSection($section)) {

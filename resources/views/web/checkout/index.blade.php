@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Secure Checkout | Oreon Living')
+@section('title', 'Secure Checkout | Oréon Living')
 
 @section('content')
 <div class="container section-tight">
@@ -223,7 +223,7 @@
                 </button>
 
                 <p style="font-size: 0.75rem; color: var(--color-text-muted); text-align: center; line-height: 1.5;">
-                    By placing your order, you agree to Oreon Living's <a href="{{ route('pages.terms') }}" target="_blank" style="text-decoration: underline;">Terms &amp; Conditions</a> and <a href="{{ route('pages.return-policy') }}" target="_blank" style="text-decoration: underline;">Return Policy</a>.
+                    By placing your order, you agree to Oréon Living's <a href="{{ route('pages.terms') }}" target="_blank" style="text-decoration: underline;">Terms &amp; Conditions</a> and <a href="{{ route('pages.return-policy') }}" target="_blank" style="text-decoration: underline;">Return Policy</a>.
                 </p>
             </div>
         </div>

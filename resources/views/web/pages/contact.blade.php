@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Contact Studio Concierge | Oreon Living')
+@section('title', 'Contact Studio Concierge | Oréon Living')
 
 @section('content')
 <div class="container section-tight">
@@ -38,7 +38,7 @@
             </div>
 
             <!-- Instant WhatsApp Chat Link -->
-            <a href="https://wa.me/{{ $settings['whatsapp'] }}?text={{ urlencode('Hello Oreon Living, I would like to speak with your studio concierge.') }}" 
+            <a href="https://wa.me/{{ $settings['whatsapp'] }}?text={{ urlencode('Hello Oréon Living, I would like to speak with your studio concierge.') }}" 
                target="_blank" rel="noopener noreferrer" 
                class="btn" style="background-color: #25D366; color: #FFFFFF; display: inline-flex;">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="#FFFFFF"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2z"></path></svg>

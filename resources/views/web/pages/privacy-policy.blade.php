@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Privacy Policy | Oreon Living')
+@section('title', 'Privacy Policy | Oréon Living')
 
 @section('content')
 <div class="container section-tight">
@@ -15,7 +15,7 @@
         <h1 style="font-size: 2.25rem; margin: 0.5rem 0 1.5rem;">Privacy Policy</h1>
 
         <div style="color: var(--color-text-muted); line-height: 1.8; font-size: 0.9375rem; display: flex; flex-direction: column; gap: 1.5rem;">
-            <p>At Oreon Living, your personal information is treated with the same mindful care as our craft. We do not sell, rent, or trade customer data to any third-party marketing brokers.</p>
+            <p>At Oréon Living, your personal information is treated with the same mindful care as our craft. We do not sell, rent, or trade customer data to any third-party marketing brokers.</p>
 
             <div>
                 <h3 style="font-size: 1.25rem; color: var(--color-text); margin-bottom: 0.5rem;">Information We Collect</h3>

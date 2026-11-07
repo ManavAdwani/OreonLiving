@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Server Error — Oreon Living')
+@section('title', 'Server Error — Oréon Living')
 
 @section('content')
 <section class="section" style="min-height: 60vh; display: flex; align-items: center; justify-content: center; text-align: center;">

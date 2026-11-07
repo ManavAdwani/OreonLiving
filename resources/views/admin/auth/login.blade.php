@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Staff Sign In | Oreon Living Administration</title>
+    <title>Staff Sign In | Oréon Living Administration</title>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
     <link rel="stylesheet" href="{{ asset('css/oreon.css') }}">
@@ -42,7 +42,7 @@
 <body>
     <div class="login-card">
         <div style="text-align: center; margin-bottom: 2rem;">
-            <span style="font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 600; color: #FAF7F2; display: block;">OREON LIVING</span>
+            <span style="font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 600; color: #FAF7F2; display: block;">ORÉON LIVING</span>
             <span style="font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-clay); font-weight: 600;">Staff &amp; Operations Portal</span>
         </div>
 

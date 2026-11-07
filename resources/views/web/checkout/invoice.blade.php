@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tax Invoice #{{ $order->order_number }} | Oreon Living</title>
+    <title>Tax Invoice #{{ $order->order_number }} | Oréon Living</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -118,10 +118,10 @@
     <div class="invoice-box">
         <div class="header">
             <div>
-                <div class="brand-title">OREON LIVING</div>
+                <div class="brand-title">ORÉON LIVING</div>
                 <div style="font-size: 12px; color: #B85D3B; font-weight: 600; letter-spacing: 0.15em;">AUTHENTIC EARTHEN GOODS</div>
                 <p style="margin-top: 8px; color: #6B7280; font-size: 12px;">
-                    Oreon Living Private Limited<br>
+                    Oréon Living Private Limited<br>
                     42 Pottery Lane, Heritage Crafts District<br>
                     Bengaluru, Karnataka 560001, India<br>
                     GSTIN: 29AABCO1234F1Z8

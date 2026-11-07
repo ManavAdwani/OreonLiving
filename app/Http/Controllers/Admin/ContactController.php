@@ -26,7 +26,7 @@ class ContactController extends Controller
     public function show(ContactSubmission $contact): View
     {
         $cleanPhone = preg_replace('/[^0-9]/', '', $contact->phone ?? '');
-        $whatsappUrl = $cleanPhone ? "https://wa.me/{$cleanPhone}?text=" . urlencode("Hello {$contact->name}, regarding your Oreon Living inquiry: ") : null;
+        $whatsappUrl = $cleanPhone ? "https://wa.me/{$cleanPhone}?text=" . urlencode("Hello {$contact->name}, regarding your Oréon Living inquiry: ") : null;
 
         return view('admin.contacts.show', compact('contact', 'whatsappUrl'));
     }

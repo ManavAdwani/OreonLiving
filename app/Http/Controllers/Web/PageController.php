@@ -25,7 +25,7 @@ class PageController extends Controller
         $settings = [
             'email' => WebsiteSetting::get('support_email', 'concierge@oreonliving.com'),
             'phone' => WebsiteSetting::get('support_phone', '+91 98765 43210'),
-            'address' => WebsiteSetting::get('address', 'Oreon Living Studio, Heritage Crafts District, Bengaluru 560001'),
+            'address' => WebsiteSetting::get('address', 'Oréon Living Studio, Heritage Crafts District, Bengaluru 560001'),
             'whatsapp' => WebsiteSetting::get('whatsapp_number', '919876543210'),
         ];
 

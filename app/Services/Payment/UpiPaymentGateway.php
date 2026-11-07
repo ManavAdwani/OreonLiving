@@ -13,7 +13,7 @@ class UpiPaymentGateway implements PaymentGatewayInterface
     public function __construct()
     {
         $this->vpa = WebsiteSetting::get('upi_vpa', 'oreonliving@icici');
-        $this->merchantName = WebsiteSetting::get('site_name', 'Oreon Living');
+        $this->merchantName = WebsiteSetting::get('site_name', 'Oréon Living');
     }
 
     public function initiatePayment(Order $order): array

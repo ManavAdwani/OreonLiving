@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Order Confirmed #' . $order->order_number . ' | Oreon Living')
+@section('title', 'Order Confirmed #' . $order->order_number . ' | Oréon Living')
 
 @section('content')
 <div class="container section-tight">

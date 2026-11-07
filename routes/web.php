@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\FaqController as AdminFaqController;
 use App\Http\Controllers\Admin\OrderController as AdminOrderController;
 use App\Http\Controllers\Admin\ProductController as AdminProductController;
 use App\Http\Controllers\Admin\ReviewController as AdminReviewController;
+use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\StaffController;
 use App\Http\Controllers\Web\AccountController;
 use App\Http\Controllers\Web\AuthController;
@@ -147,6 +148,12 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::middleware('admin.role:content')->group(function () {
             Route::resource('banners', BannerController::class);
             Route::resource('faqs', AdminFaqController::class);
+        });
+
+        // Website Settings & Basic Content Management (PDF items 45, 48, 100)
+        Route::middleware('admin.role:settings')->group(function () {
+            Route::get('settings', [SettingController::class, 'index'])->name('settings.index');
+            Route::post('settings', [SettingController::class, 'update'])->name('settings.update');
         });
 
         // Customer Inquiries & WhatsApp Leads

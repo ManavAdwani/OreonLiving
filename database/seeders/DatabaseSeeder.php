@@ -608,7 +608,7 @@ class DatabaseSeeder extends Seeder
                 'status' => 'published',
                 'featured' => $pData['featured'],
                 'bestseller' => $pData['bestseller'],
-                'seo_title' => $pData['name'] . ' | Oreon Living',
+                'seo_title' => $pData['name'] . ' | Oréon Living',
                 'seo_description' => $pData['short_description'],
             ]);
 
@@ -904,7 +904,7 @@ class DatabaseSeeder extends Seeder
 
         // 10. Website Settings
         $settings = [
-            'site_name' => 'Oreon Living',
+            'site_name' => 'Oréon Living',
             'site_tagline' => 'Crafted from Earth. Designed for Modern Living.',
             'announcement_bar_text' => 'Complimentary pan-India delivery on orders above ₹1,999 • 100% Breakage-Free Guarantee',
             'announcement_bar_link' => '/shop',
@@ -912,7 +912,7 @@ class DatabaseSeeder extends Seeder
             'whatsapp_number' => '919876543210',
             'support_email' => 'concierge@oreonliving.com',
             'support_phone' => '+91 98765 43210',
-            'address' => 'Oreon Living Studio, 42 Pottery Lane, Heritage Crafts District, Bengaluru 560001, Karnataka',
+            'address' => 'Oréon Living Studio, 42 Pottery Lane, Heritage Crafts District, Bengaluru 560001, Karnataka',
             'meta_pixel_id' => '123456789012345',
             'google_analytics_id' => 'G-OREON12345',
             'instagram_url' => 'https://instagram.com/oreonliving',

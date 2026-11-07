@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', ($product->seo_title ?: $product->name) . ' | Oreon Living')
+@section('title', ($product->seo_title ?: $product->name) . ' | Oréon Living')
 @section('meta_description', $product->seo_description ?: $product->short_description)
 
 @section('content')
@@ -169,7 +169,7 @@
 
             <!-- Product-Specific WhatsApp Enquiry Button (PDF item 26, 149) -->
             @php
-                $waProductMsg = "Hello Oreon Living, I am inquiring about the {$product->name} (SKU: {$product->sku}). Is this currently available for shipping?";
+                $waProductMsg = "Hello Oréon Living, I am inquiring about the {$product->name} (SKU: {$product->sku}). Is this currently available for shipping?";
                 $whatsappProductUrl = "https://wa.me/" . \App\Models\WebsiteSetting::get('whatsapp_number', '919876543210') . "?text=" . urlencode($waProductMsg);
             @endphp
             <div style="margin-bottom: 2rem;">

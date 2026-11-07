@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Frequently Asked Questions | Oreon Living')
+@section('title', 'Frequently Asked Questions | Oréon Living')
 @section('meta_description', 'Everything you need to know about caring for terracotta, seasoning clay cookware, and transit guarantee.')
 
 @section('content')

@@ -108,7 +108,7 @@ class CheckoutController extends Controller
         $whatsappNumber = WebsiteSetting::get('whatsapp_number', '919876543210');
 
         // Pre-filled WhatsApp message for order confirmation (Item 150 & 152 in PDF)
-        $waText = "Hello Oreon Living, I placed Order #{$order->order_number} for ₹" . number_format($order->total, 2) . ". Please confirm my order details.";
+        $waText = "Hello Oréon Living, I placed Order #{$order->order_number} for ₹" . number_format($order->total, 2) . ". Please confirm my order details.";
         $whatsappOrderUrl = "https://wa.me/{$whatsappNumber}?text=" . urlencode($waText);
 
         return view('web.checkout.confirmation', compact('order', 'upiData', 'whatsappOrderUrl'));

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', $category->name . ' | Oreon Living')
-@section('meta_description', $category->description ?? 'Discover handcrafted ' . strtolower($category->name) . ' by Oreon Living.')
+@section('title', $category->name . ' | Oréon Living')
+@section('meta_description', $category->description ?? 'Discover handcrafted ' . strtolower($category->name) . ' by Oréon Living.')
 
 @section('content')
 <div class="container section-tight">

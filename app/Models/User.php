@@ -125,7 +125,8 @@ class User extends Authenticatable
             'marketing' => in_array($this->role, ['marketing_manager', 'viewer']),
             'support', 'contacts' => in_array($this->role, ['customer_support', 'viewer']),
             'reports' => in_array($this->role, ['marketing_manager', 'order_manager', 'viewer']),
-            'activity_logs', 'staff', 'settings' => $this->isSuperAdmin(),
+            'settings' => in_array($this->role, ['super_admin', 'content_manager']),
+            'activity_logs', 'staff' => $this->isSuperAdmin(),
             default => false,
         };
     }

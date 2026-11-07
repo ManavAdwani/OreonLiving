@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
-@section('title', 'Our Story & Craft Philosophy | Oreon Living')
-@section('meta_description', 'Discover the story of Oreon Living: pure riverbed clay, Indian artisan legacies, and mindful home objects.')
+@section('title', 'Our Story & Craft Philosophy | Oréon Living')
+@section('meta_description', 'Discover the story of Oréon Living: pure riverbed clay, Indian artisan legacies, and mindful home objects.')
 
 @section('content')
 <div class="container section-tight">
     <!-- Editorial Hero -->
     <div style="max-width: 820px; margin: 2rem auto 4rem; text-align: center;">
-        <span class="text-uppercase text-xs text-clay">The Oreon Living Philosophy</span>
+        <span class="text-uppercase text-xs text-clay">The Oréon Living Philosophy</span>
         <h1 style="font-size: clamp(2.5rem, 5vw, 4rem); margin: 0.75rem 0 1.5rem; line-height: 1.15;">
             Born from Riverbed Mud.<br>Crafted for Everyday Rituals.
         </h1>
@@ -16,12 +16,12 @@
         </p>
     </div>
 
-    <!-- Editorial Full Width Image -->
-    <div style="aspect-ratio: 21/9; border-radius: var(--radius-sm); overflow: hidden; margin-bottom: 5rem; border: 1px solid var(--color-border); background-color: var(--color-surface-subtle);">
-        <img src="https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?auto=format&fit=crop&w=1600&q=85" alt="Pottery Studio Clay Craft" style="width: 100%; height: 100%; object-fit: cover;">
+    <!-- Editorial Full Width Image with Parallax Depth -->
+    <div class="parallax-window" style="aspect-ratio: 21/9; border-radius: var(--radius-sm); overflow: hidden; margin-bottom: 5rem; border: 1px solid var(--color-border); background-color: var(--color-surface-subtle);">
+        <img src="https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?auto=format&fit=crop&w=1600&q=85" alt="Pottery Studio Clay Craft" class="parallax-img" data-parallax-speed="0.22" data-parallax-scale="1.18" style="width: 100%; height: 100%; object-fit: cover;">
     </div>
 
-    <!-- 2-Column Story Sections -->
+    <!-- 2-Column Story Sections with Staggered Parallax Depth -->
     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-bottom: 5rem;" class="about-grid">
         <div>
             <span class="text-uppercase text-xs text-clay">Chapter I</span>
@@ -33,20 +33,20 @@
                 Terracotta lives. Its microscopic pore network breathes, drawing warmth out of liquids to cool water by up to 5&deg;C without electricity. In the kitchen, its natural alkalinity gently neutralizes excess acidity in cooking, producing curds with silky density and curries infused with unmatched depth.
             </p>
         </div>
-        <div style="aspect-ratio: 4/5; border-radius: var(--radius-sm); overflow: hidden; background-color: var(--color-surface-subtle); border: 1px solid var(--color-border);">
-            <img src="https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=1000&q=85" alt="Handcrafted terracotta water pot" style="width: 100%; height: 100%; object-fit: cover;">
+        <div class="parallax-window" style="aspect-ratio: 4/5; border-radius: var(--radius-sm); overflow: hidden; background-color: var(--color-surface-subtle); border: 1px solid var(--color-border);">
+            <img src="https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=1000&q=85" alt="Handcrafted terracotta water pot" class="parallax-img" data-parallax-speed="0.16" data-parallax-scale="1.16" style="width: 100%; height: 100%; object-fit: cover;">
         </div>
     </div>
 
     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-bottom: 5rem;" class="about-grid reverse-mobile">
-        <div style="aspect-ratio: 4/5; border-radius: var(--radius-sm); overflow: hidden; background-color: var(--color-surface-subtle); border: 1px solid var(--color-border);">
-            <img src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?auto=format&fit=crop&w=1000&q=85" alt="Artisan shaping clay on wheel" style="width: 100%; height: 100%; object-fit: cover;">
+        <div class="parallax-window" style="aspect-ratio: 4/5; border-radius: var(--radius-sm); overflow: hidden; background-color: var(--color-surface-subtle); border: 1px solid var(--color-border);">
+            <img src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?auto=format&fit=crop&w=1000&q=85" alt="Artisan shaping clay on wheel" class="parallax-img" data-parallax-speed="0.16" data-parallax-scale="1.16" style="width: 100%; height: 100%; object-fit: cover;">
         </div>
         <div>
             <span class="text-uppercase text-xs text-clay">Chapter II</span>
             <h2 style="font-size: 2.25rem; margin: 0.5rem 0 1.25rem;">The Living Maker Network</h2>
             <p style="color: var(--color-text-muted); line-height: 1.8; margin-bottom: 1.25rem;">
-                Oreon Living collaborates directly with artisan clusters across rural Gujarat, Rajasthan, and Karnataka. These are master potters whose lineages have preserved the wheel, burnishing techniques, and slow firewood kiln firings for centuries.
+                Oréon Living collaborates directly with artisan clusters across rural Gujarat, Rajasthan, and Karnataka. These are master potters whose lineages have preserved the wheel, burnishing techniques, and slow firewood kiln firings for centuries.
             </p>
             <p style="color: var(--color-text-muted); line-height: 1.8;">
                 We pay fair, above-market wages and commit to steady year-round production cycles, ensuring this invaluable tactile heritage continues to flourish for future generations.
@@ -59,7 +59,7 @@
         <span class="text-uppercase text-xs text-clay">Our Promise</span>
         <h2 style="margin: 0.5rem 0 1rem;">Zero Synthetic Additives</h2>
         <p class="lead-text" style="max-width: 650px; margin: 0 auto 3rem;">
-            Every Oreon Living piece is certified 100% free of lead, cadmium, synthetic lacquers, and chemical sealants. Pure earth, pure water, pure fire.
+            Every Oréon Living piece is certified 100% free of lead, cadmium, synthetic lacquers, and chemical sealants. Pure earth, pure water, pure fire.
         </p>
 
         <a href="{{ route('shop.index') }}" class="btn btn-primary btn-lg">Explore the Collections</a>

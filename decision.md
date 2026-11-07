@@ -165,6 +165,18 @@ Provides seamless frictionless purchasing for Indian shoppers who favor UPI and 
 - **Cart & Checkout Stacking**: Form fields and cart rows split into stacked mobile cards with thumb-friendly quantity steppers and full-width checkout actions.
 - **Date**: 18 Oct 2026.
 
+### Decision Change (Vertical Parallax Depth System)
+- **Previous**: Static image layout containers with standard hover zoom.
+- **New**: High-performance, GPU-accelerated Vertical Parallax Depth System (`.parallax-window`, `.parallax-img`, `.parallax-layer`).
+- **Core Features**:
+  - `IntersectionObserver` & `requestAnimationFrame` engine that only computes visible elements without layout reflows (`translate3d`).
+  - Asymmetric Hero Section: Hero pottery vessel floats down (`speed: 0.18`) while floating pure earth certification badge lifts up (`speed: -0.12`) creating true 3D plane separation.
+  - Curated Collections Mosaic: Staggered multi-speed column float (`speed: 0.14` vs `0.22`) creating an organic floating pottery gallery.
+  - Full-Bleed Immersion Canvas Banner: Panoramic "Living in Clay" visual break with deep vertical parallax travel (`speed: 0.26`).
+  - Heritage Split: Master potter wheel photo paired with counter-scrolling lineage badge (`speed: -0.12`).
+  - Accessibility: Full `@media (prefers-reduced-motion: reduce)` support and mobile scale dampening.
+- **Date**: 07 Nov 2026.
+
 ---
 
 ## 8. Performance & Asset Strategy

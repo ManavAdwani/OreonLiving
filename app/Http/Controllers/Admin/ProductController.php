@@ -112,7 +112,7 @@ class ProductController extends Controller
             'status' => $validated['status'],
             'featured' => $request->boolean('featured'),
             'bestseller' => $request->boolean('bestseller'),
-            'seo_title' => $validated['seo_title'] ?? $validated['name'] . ' | Oreon Living',
+            'seo_title' => $validated['seo_title'] ?? $validated['name'] . ' | Oréon Living',
             'seo_description' => $validated['seo_description'] ?? $validated['short_description'],
         ]);
 

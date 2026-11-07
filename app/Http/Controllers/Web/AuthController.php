@@ -87,7 +87,7 @@ class AuthController extends Controller
 
         $this->cartService->mergeGuestCartToUser($user);
 
-        return redirect()->route('account.dashboard')->with('success', 'Welcome to Oreon Living! Your account has been created.');
+        return redirect()->route('account.dashboard')->with('success', 'Welcome to Oréon Living! Your account has been created.');
     }
 
     public function logout(Request $request): RedirectResponse

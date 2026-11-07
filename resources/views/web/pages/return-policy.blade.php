@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Return & Replacement Policy | Oreon Living')
+@section('title', 'Return & Replacement Policy | Oréon Living')
 
 @section('content')
 <div class="container section-tight">
